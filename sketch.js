@@ -10,16 +10,16 @@ function setup() {
   captureGraphics = captureGraphics(capture_width,capture_height)
   captureGraphics.translate(capture_width,0)
   captureGraphics.scale(-1,1)
-   
+  capture.hide()
 }
 
 function draw() {
   background(220);
   noStroke()
   push()
-   translate(width/2-160,height/2-120)
+   translate(width/2-capture_width/2,height/2-capture_height/2)
    captureGraphics.image(capture,0,0)
-   for(var x = 0;x<captureGraphics.width;x=x+span){
+   for(var x=0;x<captureGraphics.width;x=x+span){
     for(var y=0;y<captureGraphics.height;y=y+span){
       var pixel = captureGraphics.get(x,y)
       fill(pixel)
